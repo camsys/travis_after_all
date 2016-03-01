@@ -91,7 +91,7 @@ def get_token():
     data = {"github_token": gh_token}
     headers = {'content-type': 'application/json'}
 
-    req = urllib2.Request("{0}/auth/github".format(travis_entry), json.dumps(data), headers)
+    req = urllib2.Request("{0}/auth/github/".format(travis_entry), json.dumps(data), headers)
     response = urllib2.urlopen(req).read()
     log.info("response: {0}".format(response))
     travis_token = json.loads(response).get('access_token')
