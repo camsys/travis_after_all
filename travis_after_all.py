@@ -92,7 +92,7 @@ def get_token():
 
     req = urllib2.Request("{0}/auth/github".format(travis_entry), json.dumps(data), headers)
     response = urllib2.urlopen(req).read()
-    travis_token = json.loads(response).get('access_token')
+    travis_token = simplejson.loads(response).get('access_token')
 
     return travis_token
 
